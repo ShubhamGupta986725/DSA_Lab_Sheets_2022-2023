@@ -55,6 +55,24 @@ int main(){
             printf("Please enter string to be added : ");
             scanf("\n%s", &arr[0]);
         }
+        if(c=='c'){
+            printf("Enter the index of the element you want to delete : ");
+            int ind;
+            scanf("%d", &ind);
+            if(ind>size-1){
+                printf("Index out of bounds.\n");
+            }
+            else{
+                for(int i=ind-1;i<size;i++){
+                    strcpy(arr[i], arr[i+1]);
+                }
+                arr = realloc(arr, (size-1)*sizeof(char[20]));
+                size--;
+            }
+        }
+        if(c=='d'){
+            printf("Size of array = %d", size);
+        }
         if(c=='e'){
             for(int i=0;i<size;i++){
                 printf("%s\n", arr[i]);
