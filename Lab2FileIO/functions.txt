@@ -1,0 +1,73 @@
+fopen(): To open a file.
+    Declaration: FILE *fopen (const char *filename, const char *mode)
+    Description: fopen() function is used to open a file to perform operations such as reading or
+    writing on it. In a C program, we declare a file pointer and use fopen() as shown below.
+        FILE* fp;
+        fp = fopen(“filename”, “mode”);
+
+
+fclose(): To close a file.
+    Declaration: int fclose(FILE *fp)
+    Description: fclose() function closes the file that is being pointed by file pointer fp. We close a
+    file as shown below.
+        fclose(fp);
+
+
+fgets(): To read from a file.
+    Declaration: char *fgets(char *string, int n, FILE *fp)
+    Description: fgets() function is used to read a file line by line as shown below.
+        fgets (buffer, size, fp);
+
+
+fprintf(): To write into a file.
+    Declaration: int fprintf(FILE *fp, const char *format, ...)
+    Description: fprintf() function writes a string into a file pointed by fp as shown below.
+        fprintf (fp, “some_data”);
+        //or
+        fprintf (fp, “text %d”, variable_name);
+
+
+fscanf(): To read from a file.
+    Declaration: int fscanf(FILE *fp, const char *format, ...)
+    Description: fscanf() function reads formatted input from the file as shown below.
+        fscanf(fp, "%s %s %s %d", str1, str2, str3, &year);
+    
+MODE : 
+    
+r - Searches file. If the file is opened successfully fopen( ) loads it into memory and sets up
+a pointer that points to the first character in it. If the file cannot be opened fopen( )
+returns NULL.
+
+rb - Open for reading in binary mode. If the file does not exist, fopen( ) returns NULL.
+
+w - Searches file. If the file exists, its contents are overwritten. If the file doesn’t exist, a
+new file is created. Returns NULL, if unable to open the file.
+
+wb - Open for writing in binary mode. If the file exists, its contents are overwritten. If the
+file does not exist, it will be created.
+
+a - Searches file. If the file is opened successfully fopen( ) loads it into memory and sets up
+a pointer that points to the last character in it. If the file doesn’t exist, a new file is
+created. Returns NULL, if unable to open the file.
+
+ab - Open for append in binary mode. Data is added to the end of the file. If the file does
+not exist, it will be created.
+
+r+ - Searches file. It is opened successfully fopen( ) loads it into memory and sets up a
+pointer that points to the first character in it. Returns NULL, if unable to open the file.
+
+rb+ - Open for both reading and writing in binary mode. If the file does not exist, fopen( )
+returns NULL.
+
+w+ - Searches file. If the file exists, its contents are overwritten. If the file doesn’t exist a
+new file is created. Returns NULL, if unable to open the file.
+
+wb+ - Open for both reading and writing in binary mode. If the file exists, its contents are
+overwritten. If the file does not exist, it will be created.
+
+a+ - Searches file. If the file is opened successfully fopen( ) loads it into memory and sets up
+a pointer that points to the last character in it. If the file doesn’t exist, a new file is
+created. Returns NULL, if unable to open the file.
+
+ab+ - Open for both reading and appending in binary mode. If the file does not exist, it will
+be created.
