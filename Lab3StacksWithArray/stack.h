@@ -21,5 +21,8 @@ bool isEmpty(Stack *stack);
 void freeStack(Stack *stack);
 // Frees all memory associated with stack
 
+void printStack(Stack *s);
+// Prints the Stack
+
 #endif
 
