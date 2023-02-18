@@ -33,5 +33,6 @@ bool isEmpty(STACK stack){
 
 void freeStack(STACK stack){
     free(stack);
+    // Need to iterate over it to free each node individually.
 }
 
