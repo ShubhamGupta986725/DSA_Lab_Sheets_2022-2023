@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-int* counting_sort(int* A, int* B, int n, int place) 
+
+int* radix_straight_aux(int* A, int* B, int n, int place) 
 {
     int k=10;
     int C[k];
@@ -22,10 +23,31 @@ int* counting_sort(int* A, int* B, int n, int place)
     return B;
 }
 
+
+int* radix_sort(int* A, int* B, int n){
+    int place=1;
+    int max=0;
+    for(int i=0;i<n;i++) if(A[i]>max) max=A[i];
+    // max = 987
+    int iter=1;
+    while(max/10!=0){
+        max/=10;
+        iter++;
+    }
+    for(int i=0;i<iter;i++){
+        radix_straight_aux(A, B, n, place);   
+        for(int i=0;i<n;i++){
+            A[i]=B[i];
+        }
+        place*=10;        
+    }
+    return A;
+}
+
 int main(){
     int arr[] = {5775, 6252, 9884, 2910, 3615, 3974, 1527, 3732, 1928};
     int barr[9];
-    counting_sort(arr, barr, 9, 100);
+    radix_sort(arr, barr, 9);
     for(int i=0;i<9;i++){
         printf("%d ", barr[i]);
     }
