@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 int* radix_straight_aux(int* A, int* B, int n, int place) 
 {
@@ -28,12 +29,7 @@ int* radix_sort(int* A, int* B, int n){
     int place=1;
     int max=0;
     for(int i=0;i<n;i++) if(A[i]>max) max=A[i];
-    // max = 987
-    int iter=1;
-    while(max/10!=0){
-        max/=10;
-        iter++;
-    }
+    int iter=log10(max)+1;
     for(int i=0;i<iter;i++){
         radix_straight_aux(A, B, n, place);   
         for(int i=0;i<n;i++){
